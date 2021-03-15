@@ -1,0 +1,22 @@
+eureka:
+  client:
+    fetch-registry: false  # we dont have other eureka servers
+    register-with-eureka: false # we dont have other eureka servers
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka
+
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+
+server:
+  port: 8051
+
+eureka:
+  server:
+    enable-self-preservation: false # keep calm if no services are connected
+  instance:
+    hostname: localhost
+
