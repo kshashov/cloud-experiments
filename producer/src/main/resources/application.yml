@@ -9,6 +9,14 @@ spring:
   config:
     activate:
       on-profile: dev
+  cloud:
+    stream:
+      bindings:
+        output:
+          destination: generateTasks
+  kafka:
+    bootstrap-servers:
+      - localhost:9092
 
 server:
   port: 8055

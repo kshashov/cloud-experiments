@@ -1,4 +1,4 @@
-package com.github.kshashov.cloud.task.client;
+package com.github.kshashov.cloud.generator.client;
 
 import com.github.kshashov.cloud.utils.Task;
 import com.github.kshashov.cloud.utils.TaskDto;

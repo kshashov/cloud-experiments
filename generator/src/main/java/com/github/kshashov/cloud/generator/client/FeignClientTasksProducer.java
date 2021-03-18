@@ -1,4 +1,4 @@
-package com.github.kshashov.cloud.task.client;
+package com.github.kshashov.cloud.generator.client;
 
 import com.github.kshashov.cloud.utils.Task;
 import com.github.kshashov.cloud.utils.TaskDto;
@@ -12,7 +12,7 @@ import java.util.List;
 @Primary
 @Profile("feign")
 @Service
-public class FeignClientTasksProducer implements TasksProducer {
+public class FeignClientTasksProducer extends AbstractTasksProducer {
     private final ProducerClient producerClient;
 
     public FeignClientTasksProducer(ProducerClient producerClient) {

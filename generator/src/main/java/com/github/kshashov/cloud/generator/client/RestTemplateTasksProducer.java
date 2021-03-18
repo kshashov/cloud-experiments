@@ -1,4 +1,4 @@
-package com.github.kshashov.cloud.task.client;
+package com.github.kshashov.cloud.generator.client;
 
 import com.github.kshashov.cloud.utils.Task;
 import com.github.kshashov.cloud.utils.TaskDto;
@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Objects;
 
 @Service
-public class RestTemplateTasksProducer implements TasksProducer {
+public class RestTemplateTasksProducer extends AbstractTasksProducer {
     private final RestTemplate restTemplate;
 
     public RestTemplateTasksProducer(RestTemplate restTemplate) {

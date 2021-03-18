@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import javax.validation.constraints.NotEmpty;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Validated
@@ -31,7 +32,7 @@ public class TasksController {
     }
 
     @PostMapping("generate")
-    void generate() {
-
+    void generate(@RequestParam(name = "count") Optional<Integer> count) {
+        taskRegistry.generate(count.orElse(1));
     }
 }
