@@ -8,4 +8,4 @@
  */
 
 rootProject.name = 'cloud-experiments'
-include('eureka', 'producer')
+include('eureka', 'utils', 'producer', 'task')

@@ -1,7 +1,7 @@
 package com.github.kshashov.cloud.producer.services;
 
-import com.github.kshashov.cloud.producer.models.TaskDto;
-import com.github.kshashov.cloud.producer.models.Task;
+import com.github.kshashov.cloud.utils.Task;
+import com.github.kshashov.cloud.utils.TaskDto;
 import org.springframework.stereotype.Service;
 
 import java.util.UUID;

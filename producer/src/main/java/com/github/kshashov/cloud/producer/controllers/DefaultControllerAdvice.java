@@ -1,6 +1,9 @@
-package com.github.kshashov.cloud.producer.commons;
+package com.github.kshashov.cloud.producer.controllers;
 
+import com.github.kshashov.cloud.producer.models.BadRequestException;
+import com.github.kshashov.cloud.producer.models.ErrorResponse;
 import org.springframework.beans.TypeMismatchException;
+import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
@@ -20,8 +23,9 @@ import org.springframework.web.servlet.NoHandlerFoundException;
 import javax.naming.NoPermissionException;
 import java.nio.file.AccessDeniedException;
 
-@ControllerAdvice("com.github.kshashov.cloud.producer")
-public class TestControllerAdvice {
+@Order(100)
+@ControllerAdvice("com.github.kshashov.cloud")
+public class DefaultControllerAdvice {
 
     @ExceptionHandler({AccessDeniedException.class, NoPermissionException.class})
     protected ResponseEntity<ErrorResponse> handleAccessDeniedException(RuntimeException ex, WebRequest request) {

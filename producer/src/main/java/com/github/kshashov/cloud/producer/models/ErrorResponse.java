@@ -1,4 +1,4 @@
-package com.github.kshashov.cloud.producer.commons;
+package com.github.kshashov.cloud.producer.models;
 
 import lombok.Data;
 
