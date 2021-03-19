@@ -1,17 +1,12 @@
 spring:
   application:
-    name: generator
+    name: sum
 
 ---
 spring:
   config:
     activate:
       on-profile: dev
-  cloud:
-    stream:
-      bindings:
-        generate-in-0:
-          destination: generateTasks
 
   kafka:
     bootstrap-servers:
@@ -20,16 +15,11 @@ spring:
       value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
       properties:
         spring.json.trusted.packages: "*"
+
 server:
-  port: 8056
+  port: 8057
 
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:8051/eureka/
-
----
-spring:
-  config:
-    activate:
-      on-profile: feign

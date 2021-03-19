@@ -1,5 +1,6 @@
 package com.github.kshashov.cloud.generator.client;
 
+import com.github.kshashov.cloud.utils.GenerateTasks;
 import com.github.kshashov.cloud.utils.Task;
 import com.github.kshashov.cloud.utils.TaskDto;
 import org.slf4j.Logger;
@@ -14,10 +15,13 @@ public abstract class AbstractTasksProducer implements TasksProducer {
     private final static Logger log = LoggerFactory.getLogger(AbstractTasksProducer.class);
 
     @Override
-    public void generate(int count) {
+    public void generate(GenerateTasks generateTasks) {
         List<TaskDto> tasks = new ArrayList<>();
-        for (int i = 0; i < count; i++) {
-            tasks.add(new TaskDto("sum", new HashMap<>()));
+        for (int i = 0; i < generateTasks.getCount(); i++) {
+            HashMap<String, String> properties = new HashMap<>();
+            properties.put("a", String.valueOf((int) (Math.random() * 10)));
+            properties.put("b", String.valueOf((int) (Math.random() * 10)));
+            tasks.add(new TaskDto("sum", properties));
         }
 
         try {

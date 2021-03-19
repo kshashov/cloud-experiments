@@ -2,6 +2,8 @@ package com.github.kshashov.cloud.producer.controllers;
 
 import com.github.kshashov.cloud.producer.models.BadRequestException;
 import com.github.kshashov.cloud.producer.models.ErrorResponse;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.TypeMismatchException;
 import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpStatus;
@@ -26,6 +28,7 @@ import java.nio.file.AccessDeniedException;
 @Order(100)
 @ControllerAdvice("com.github.kshashov.cloud")
 public class DefaultControllerAdvice {
+    public static final Logger log = LoggerFactory.getLogger(DefaultControllerAdvice.class);
 
     @ExceptionHandler({AccessDeniedException.class, NoPermissionException.class})
     protected ResponseEntity<ErrorResponse> handleAccessDeniedException(RuntimeException ex, WebRequest request) {
@@ -104,6 +107,7 @@ public class DefaultControllerAdvice {
 
     @ExceptionHandler(Throwable.class)
     protected ResponseEntity<ErrorResponse> handleExceptions(Throwable ex, WebRequest request) {
+        log.error("Internal error", ex);
         return new ResponseEntity<>(
                 new ErrorResponse("An internal error occurred"),
                 HttpStatus.INTERNAL_SERVER_ERROR);
