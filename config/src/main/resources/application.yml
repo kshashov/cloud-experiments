@@ -11,8 +11,15 @@ spring:
     config:
       server:
         git:
+          default-label: main
           uri: https://github.com/kshashov/cloud-experiments
           search-paths: configurations
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh
 
 server:
   port: 8052

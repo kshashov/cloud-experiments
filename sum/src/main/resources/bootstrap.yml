@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: sum
+  cloud:
+    config:
+      discovery:
+        service-id: config
+        enabled: true
+      fail-fast: true
+      retry:
+        initialInterval: 2000
+        multiplier: 1.5
+        maxInterval: 60000
+        maxAttempts: 100
+
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+
+server:
+  port: 8057
+
+eureka:
+  instance:
+    lease-renewal-interval-in-seconds: 10
+  client:
+    service-url:
+      defaultZone: http://localhost:8051/eureka/
+
+
