@@ -1,6 +1,6 @@
 package com.github.kshashov.cloud.producer.services;
 
-import com.github.kshashov.cloud.utils.GenerateTasks;
+import com.github.kshashov.cloud.utils.GenerateTasksEvent;
 import com.github.kshashov.cloud.utils.Task;
 import com.github.kshashov.cloud.utils.TaskDto;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +31,6 @@ public class TaskRegistry {
     }
 
     public void generate(int count) {
-        source.output().send(new GenericMessage<>(new GenerateTasks(count)));
+        source.output().send(new GenericMessage<>(new GenerateTasksEvent(count)));
     }
 }

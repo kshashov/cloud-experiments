@@ -1,25 +1,8 @@
 spring:
   application:
     name: sum
+  cloud:
+    config:
+      uri: http://config/
 
----
-spring:
-  config:
-    activate:
-      on-profile: dev
 
-  kafka:
-    bootstrap-servers:
-      - localhost:9092
-    consumer:
-      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
-      properties:
-        spring.json.trusted.packages: "*"
-
-server:
-  port: 8057
-
-eureka:
-  client:
-    service-url:
-      defaultZone: http://localhost:8051/eureka/

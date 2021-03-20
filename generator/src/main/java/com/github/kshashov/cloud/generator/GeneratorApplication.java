@@ -1,7 +1,7 @@
 package com.github.kshashov.cloud.generator;
 
 import com.github.kshashov.cloud.generator.client.TasksProducer;
-import com.github.kshashov.cloud.utils.GenerateTasks;
+import com.github.kshashov.cloud.utils.GenerateTasksEvent;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
@@ -26,7 +26,7 @@ public class GeneratorApplication {
 	}
 
 	@Bean
-	public Consumer<GenerateTasks> generate(TasksProducer tasksProducer) {
+	public Consumer<GenerateTasksEvent> generate(TasksProducer tasksProducer) {
 		return tasksProducer::generate;
 	}
 }

@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: config
+
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/kshashov/cloud-experiments
+          search-paths: configrations
+
+server:
+  port: 8052
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8051/eureka/

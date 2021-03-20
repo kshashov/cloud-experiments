@@ -7,6 +7,6 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class GenerateTasks {
+public class GenerateTasksEvent {
     private Integer count;
 }

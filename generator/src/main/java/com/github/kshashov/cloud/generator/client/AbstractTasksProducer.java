@@ -1,6 +1,6 @@
 package com.github.kshashov.cloud.generator.client;
 
-import com.github.kshashov.cloud.utils.GenerateTasks;
+import com.github.kshashov.cloud.utils.GenerateTasksEvent;
 import com.github.kshashov.cloud.utils.Task;
 import com.github.kshashov.cloud.utils.TaskDto;
 import org.slf4j.Logger;
@@ -15,7 +15,7 @@ public abstract class AbstractTasksProducer implements TasksProducer {
     private final static Logger log = LoggerFactory.getLogger(AbstractTasksProducer.class);
 
     @Override
-    public void generate(GenerateTasks generateTasks) {
+    public void generate(GenerateTasksEvent generateTasks) {
         List<TaskDto> tasks = new ArrayList<>();
         for (int i = 0; i < generateTasks.getCount(); i++) {
             HashMap<String, String> properties = new HashMap<>();
