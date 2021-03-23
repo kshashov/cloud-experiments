@@ -26,7 +26,11 @@ public class TaskRegistry {
 
     public Task register(TaskDto dto) {
         Task task = new Task(UUID.randomUUID(), dto.getType(), dto.getProperties());
-        kafkaTemplate.send(task.getType(), task);
+        try {
+            kafkaTemplate.send(task.getType(), task);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
         return task;
     }
 

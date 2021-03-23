@@ -1,0 +1,15 @@
+spring:
+  cloud:
+    discovery:
+      enabled: false
+
+tests:
+  port: 9561
+
+producer:
+  url: http://localhost:${tests.port}
+
+#producer:
+#  ribbon:
+#    listOfServers: http://localhost:9561 # proxy ribbon to wiremock instance
+

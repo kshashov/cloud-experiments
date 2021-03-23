@@ -1,6 +1,13 @@
 spring:
   application:
     name: generator
+#  cloud:
+#    loadbalancer:
+#      ribbon:
+#        enabled: false
+
+producer:
+  url: http://producer/
 
 ---
 spring:

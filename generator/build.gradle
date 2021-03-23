@@ -1,7 +1,13 @@
+plugins {
+	id 'cloud-conventions'
+}
+
 dependencies {
 	implementation project(':utils')
 	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
 	implementation 'org.springframework.cloud:spring-cloud-starter-stream-kafka'
 	implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
+	implementation 'io.github.resilience4j:resilience4j-feign'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	testImplementation 'com.github.tomakehurst:wiremock:2.27.2'
 }

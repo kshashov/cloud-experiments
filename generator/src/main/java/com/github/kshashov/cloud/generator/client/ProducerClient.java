@@ -8,7 +8,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 
-@FeignClient("producer")
+// Set url for test purposes
+@FeignClient(value = "producer", url = "${producer.url}")
 public interface ProducerClient {
 
     @PutMapping("api/tasks")

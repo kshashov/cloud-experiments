@@ -31,7 +31,7 @@ public class TasksController {
         return taskDtos.stream().map(taskRegistry::register).collect(Collectors.toList());
     }
 
-    @PostMapping("generate")
+    @GetMapping("generate")
     void generate(@RequestParam(name = "count") Optional<Integer> count) {
         taskRegistry.generate(count.orElse(1));
     }
