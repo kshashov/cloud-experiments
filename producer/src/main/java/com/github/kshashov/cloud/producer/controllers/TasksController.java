@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
 
 @Validated
 @RestController
-@RequestMapping("/api/tasks")
+@RequestMapping("/tasks")
 public class TasksController {
     private final TaskRegistry taskRegistry;
 

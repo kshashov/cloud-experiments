@@ -74,7 +74,7 @@ public class TasksControllerTest {
 
     @Test
     public void generate_NoParameters() throws InterruptedException, JsonProcessingException {
-        ResponseEntity<Void> result = this.restTemplate.getForEntity("http://localhost:" + port + "/api/tasks/generate", Void.class);
+        ResponseEntity<Void> result = this.restTemplate.getForEntity("http://localhost:" + port + "/tasks/generate", Void.class);
 
         GenerateTasksEvent event = validateGenerateResult(result);
         assertEquals(1, event.getCount());
@@ -84,7 +84,7 @@ public class TasksControllerTest {
 
     @Test
     public void generate_WithParameter() throws InterruptedException, JsonProcessingException {
-        ResponseEntity<Void> result = this.restTemplate.getForEntity("http://localhost:" + port + "/api/tasks/generate?count=3", Void.class);
+        ResponseEntity<Void> result = this.restTemplate.getForEntity("http://localhost:" + port + "/tasks/generate?count=3", Void.class);
 
         GenerateTasksEvent event = validateGenerateResult(result);
         assertEquals(3, event.getCount());
@@ -110,7 +110,7 @@ public class TasksControllerTest {
         TaskDto task1 = new TaskDto("sum", Map.of("a", "1", "b", "2"));
         TaskDto task2 = new TaskDto("multiply", Map.of("a", "3", "b", "4"));
 
-        ResponseEntity<Task[]> result = this.restTemplate.exchange("http://localhost:" + port + "/api/tasks", HttpMethod.PUT, new HttpEntity<>(List.of(task1, task2)), Task[].class);
+        ResponseEntity<Task[]> result = this.restTemplate.exchange("http://localhost:" + port + "/tasks", HttpMethod.PUT, new HttpEntity<>(List.of(task1, task2)), Task[].class);
         assertNotNull(result);
         assertEquals(HttpStatus.CREATED, result.getStatusCode());
 

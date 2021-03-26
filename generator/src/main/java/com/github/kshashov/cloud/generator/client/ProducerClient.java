@@ -12,6 +12,6 @@ import java.util.List;
 @FeignClient(value = "producer", url = "${producer.url}")
 public interface ProducerClient {
 
-    @PutMapping("api/tasks")
+    @PutMapping("tasks")
     List<Task> add(@RequestBody List<TaskDto> taskDtos);
 }
